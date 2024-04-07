@@ -1,75 +1,40 @@
 :root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
-
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+  --grayscale-10: #ffffff;
+  --grayscale-20: #f0f2f4;
+  --grayscale-30: #e7eaee;
+  --grayscale-40: #b6beca;
+  --grayscale-50: #95a1b2;
+  --grayscale-60: #718198;
+  --grayscale-70: #505d6f;
+  --grayscale-80: #262c34;
+  --grayscale-90: #1f242b;
+  --etc-dim: #00000066;
+  --etc-highlight: #3671c2;
+  --etc-logo: #1c232e;
+  --etc-logo-2: #222b38;
+  --etc-logo-3: #2b3647;
+  --etc-red: #f83e3e;
+  --etc-status-bar: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
+    --grayscale-10: #191d23;
+    --grayscale-20: #14171c;
+    --grayscale-30: #22282f;
+    --grayscale-40: #718198;
+    --grayscale-50: #97a3b3;
+    --grayscale-60: #adb7c4;
+    --grayscale-70: #cdd3db;
+    --grayscale-80: #e7eaee;
+    --grayscale-90: #ffffff;
+    --etc-dim: #00000066;
+    --etc-highlight: #5f90d3;
+    --etc-logo: #ffffff;
+    --etc-logo-2: #e1e5eb;
+    --etc-logo-3: #ced5e0;
+    --etc-red: #f83e3e;
+    --etc-status-bar: #ffffff;
   }
 }
 
@@ -77,6 +42,9 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'SUIT Variable', -apple-system, BlinkMacSystemFont, system-ui,
+    'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic',
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 }
 
 html,
@@ -86,22 +54,5 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+  background: var(--grayscale-10);
 }
