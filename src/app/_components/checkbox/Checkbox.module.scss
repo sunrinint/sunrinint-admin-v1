@@ -1,0 +1,32 @@
+.container {
+  background-color: var(--grayscale-20, #f0f2f4);
+  border-radius: 4px;
+  border: 1px solid var(--grayscale-30, #e7eaee);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    filter 0.2s ease, transform 0.2s ease;
+  & > svg {
+    color: var(--grayscale-40, #6b778c);
+    transition: fill 0.2s ease;
+  }
+  &:hover {
+    filter: brightness(0.95);
+  }
+  &:active {
+    transform: scale(0.95);
+    filter: brightness(0.9);
+  }
+}
+
+.active {
+  background-color: var(--grayscale-90);
+  border: none;
+  & > svg {
+    color: var(--grayscale-10, #fff);
+  }
+}
