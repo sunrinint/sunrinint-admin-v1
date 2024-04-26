@@ -1,0 +1,62 @@
+.layout {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+}
+
+.input-group {
+  display: flex;
+  width: 480px;
+  padding: 4px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.button {
+  display: flex;
+  height: 56px;
+  max-width: 480px;
+  padding: 0px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+  border: 0;
+  align-self: stretch;
+  appearance: none;
+  border-radius: 8px;
+  background: var(--grayscale-90, #1f242b);
+  cursor: pointer;
+  &:hover {
+    background: var(--grayscale-70, #2d333b);
+  }
+  &:active {
+    background: var(--grayscale-60, #3b424c);
+  }
+  transition: background 0.2s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

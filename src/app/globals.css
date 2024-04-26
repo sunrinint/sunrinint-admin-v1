@@ -42,9 +42,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'SUIT Variable', -apple-system, BlinkMacSystemFont, system-ui,
-    'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic',
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 }
 
 html,
@@ -55,4 +52,19 @@ body {
 
 body {
   background: var(--grayscale-10);
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
 }
