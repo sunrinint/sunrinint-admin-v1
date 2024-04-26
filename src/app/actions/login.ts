@@ -1,0 +1,58 @@
+'use server';
+
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
+
+export async function login(formData: FormData) {
+  try {
+    const response = await fetch('http://localhost:3000/admin/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        id: formData.get('id'),
+        password: formData.get('password'),
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+    });
+    if (response.headers.get('set-cookie')) {
+      const refresh = response.headers
+        .get('set-cookie')
+        ?.split('Refresh=')[1]
+        .split(';')[0];
+      cookies().set({
+        name: 'Refresh',
+        value: refresh!!,
+        path: '/',
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none',
+        maxAge: 60 * 60 * 24 * 7,
+      });
+    }
+    const access = await fetch('http://localhost:3000/admin/refresh', {
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        Cookie: 'Refresh=' + cookies().get('Refresh')?.value!!,
+      },
+    });
+    const accessToken = await access.json();
+    if (accessToken.accessToken) {
+      cookies().set({
+        name: 'Access',
+        value: accessToken.accessToken,
+        path: '/',
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none',
+        maxAge: 60 * 60,
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    alert('로그인에 실패했습니다.');
+  }
+  await redirect('/club');
+}
