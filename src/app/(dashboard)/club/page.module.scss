@@ -62,3 +62,25 @@
   height: 52px;
   border-radius: 4px;
 }
+
+.club-info {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 24px 16px 0px;
+}
+
+.create-club {
+  display: flex;
+  padding: 8px 12px 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  background: var(--etc-highlight, #3671c2);
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    background: var(--etc-highlight-hover, #2e5eaa);
+  }
+  color: var(--grayscale-10, #fff);
+}

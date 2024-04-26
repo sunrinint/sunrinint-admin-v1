@@ -6,6 +6,7 @@ import Checkbox from '../../_components/checkbox/Checkbox';
 import { cookies } from 'next/headers';
 import { Notice } from '@/app/types/notice';
 import Link from 'next/link';
+import PlusIcon from '@/app/_assets/icons/plus.svg';
 
 async function getNotices() {
   'use server';
@@ -47,8 +48,11 @@ export default async function Page() {
             전체 공지 {notices!!.length}개
           </Typography.Label>
           <div className={styles['button-group']}>
-            <Link className="card" href={`?create=true`}>
-              hidfsfds
+            <Link className={styles['create-club']} href={`?create=true`}>
+              <Typography.Body bold color={10}>
+                공지 추가
+              </Typography.Body>
+              <PlusIcon />
             </Link>
           </div>
         </div>

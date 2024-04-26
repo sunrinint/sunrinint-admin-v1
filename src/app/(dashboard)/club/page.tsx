@@ -5,6 +5,8 @@ import { Typography } from '@/app/_components/typography';
 import Checkbox from '@/app/_components/checkbox/Checkbox';
 import Link from 'next/link';
 import Image from 'next/image';
+import { departmentToKorean } from '@/app/constants/department';
+import PlusIcon from '@/app/_assets/icons/plus.svg';
 
 async function getClub() {
   'use server';
@@ -40,30 +42,37 @@ export default async function page() {
       <div className={styles.content}>
         <div className={styles.tableTop}>
           <Typography.Label bold color={80}>
-            전체 공지 {clubs!!.length}개
+            전체 동아리 {clubs!!.length}개
           </Typography.Label>
           <div className={styles['button-group']}>
-            <Link className="card" href={`createClub`}>
-              hidfsfds
+            <Link className={styles['create-club']} href={`createClub`}>
+              <Typography.Body bold color={10}>
+                동아리 추가
+              </Typography.Body>
+              <PlusIcon />
             </Link>
           </div>
         </div>
         <table className={styles.table}>
           <thead className={styles['table-head']}>
             <tr>
-              <th className={styles['table-row']}>
+              <th
+                style={{
+                  width: '100px',
+                }}
+              >
                 <Typography.Body bold color={60}>
-                  동아리 이미지
+                  프로필
                 </Typography.Body>
               </th>
               <th className={styles['table-row']}>
                 <Typography.Body bold color={60}>
-                  작성자
+                  동아리 정보
                 </Typography.Body>
               </th>
               <th className={styles['table-row']}>
                 <Typography.Body bold color={60}>
-                  작성일
+                  동아리 분류
                 </Typography.Body>
               </th>
               <th className={styles['table-row']}></th>
@@ -73,7 +82,11 @@ export default async function page() {
             {clubs.length > 0 &&
               clubs.map((club: any) => (
                 <tr key={club.id}>
-                  <td>
+                  <td
+                    style={{
+                      width: '100px',
+                    }}
+                  >
                     <Image
                       src={club.logo}
                       alt="club"
@@ -82,19 +95,18 @@ export default async function page() {
                       className={styles['club-image']}
                     />
                   </td>
-                  <td className={styles['table-row']}>
-                    <Typography.Body color={80}>
+                  <td className={styles['club-info']}>
+                    <Typography.Label color={80}>
                       {club.displayName}
-                    </Typography.Body>
-                  </td>
-                  <td className={styles['table-row']}>
-                    <Typography.Body color={80}>{club.name}</Typography.Body>
+                    </Typography.Label>
+                    <Typography.Body color={70}>{club.name}</Typography.Body>
                   </td>
                   <td className={styles['table-row']}>
                     <Typography.Body color={80}>
-                      {club.createdAt}
+                      {departmentToKorean[club.department]}
                     </Typography.Body>
                   </td>
+                  <td className={styles['table-row']}></td>
                 </tr>
               ))}
           </tbody>
