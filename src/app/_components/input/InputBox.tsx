@@ -1,5 +1,7 @@
-import { ForwardedRef, forwardRef } from 'react';
+'use client';
+import { ForwardedRef, forwardRef, useState } from 'react';
 import styles from './InputBox.module.scss';
+import Label from '../label/Label';
 
 interface InputBoxProps {
   type: string;
@@ -9,17 +11,28 @@ interface InputBoxProps {
 }
 
 const InputBox = forwardRef(function InputBox(
-  props: InputBoxProps,
+  props: InputBoxProps & React.InputHTMLAttributes<HTMLInputElement>,
   ref: ForwardedRef<HTMLInputElement>,
 ) {
+  const [error, setError] = useState(false);
   return (
     <div className={styles.container}>
-      {props.label && (
-        <label className={props.required ? styles.required : ''}>
-          {props.label}
-        </label>
+      {props.label && <Label label={props.label} required={props.required} />}
+      <input
+        onBlur={() => {
+          if (props.required && !props.value) {
+            setError(true);
+          } else {
+            setError(false);
+          }
+        }}
+        ref={ref}
+        className={[styles.input, error && styles.inputError].join(' ')}
+        {...props}
+      />
+      {error && (
+        <span className={styles.error}>{props.label}을(를) 입력해주세요.</span>
       )}
-      <input ref={ref} className="input-box" {...props} />
     </div>
   );
 });

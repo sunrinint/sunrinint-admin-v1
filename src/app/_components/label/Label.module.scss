@@ -1,0 +1,19 @@
+.label {
+  color: var(--grayscale-70, #505d6f);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.required {
+  &::after {
+    content: ' *';
+    color: var(--etc-red);
+    color: var(--etc-Red, #f83e3e);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 160% */
+  }
+}
