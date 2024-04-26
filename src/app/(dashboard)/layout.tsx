@@ -2,6 +2,13 @@ import type { Metadata } from 'next';
 import '../globals.css';
 import Sidebar from '../_components/sidebar/Sidebar';
 import styles from './layout.module.scss';
+import localFont from 'next/font/local';
+import { Typography } from '../_components/typography';
+import CreateModal from '../_components/modal/CreateModal';
+
+const SUITVariable = localFont({
+  src: '../fonts/SUIT-Variable.woff2',
+});
 
 export const metadata: Metadata = {
   title: 'SunrinINT Admin',
@@ -15,9 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={styles.container}>
+      <body className={[SUITVariable.className, styles.container].join(' ')}>
         <Sidebar />
         {children}
+        <div id="modal-root">
+          <CreateModal />
+        </div>
       </body>
     </html>
   );
