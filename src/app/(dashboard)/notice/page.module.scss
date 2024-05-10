@@ -87,3 +87,16 @@
   }
   color: var(--grayscale-10, #fff);
 }
+
+.icons {
+  padding: 16px 0 16px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  & > a {
+    color: var(--grayscale-60);
+    display: flex;
+    align-items: center;
+  }
+}

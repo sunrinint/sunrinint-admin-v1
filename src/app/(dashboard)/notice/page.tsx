@@ -1,4 +1,3 @@
-import Sidebar from '../../_components/sidebar/Sidebar';
 import styles from './page.module.scss';
 import { Typography } from '../../_components/typography';
 import InputBox from '../../_components/input/InputBox';
@@ -7,6 +6,8 @@ import { cookies } from 'next/headers';
 import { Notice } from '@/app/types/notice';
 import Link from 'next/link';
 import PlusIcon from '@/app/_assets/icons/plus.svg';
+import RemoveIcon from '@/app/_assets/icons/delete.svg';
+import EditIcon from '@/app/_assets/icons/edit.svg';
 
 async function getNotices() {
   'use server';
@@ -48,7 +49,7 @@ export default async function Page() {
             전체 공지 {notices!!.length}개
           </Typography.Label>
           <div className={styles['button-group']}>
-            <Link className={styles['create-club']} href={`?create=true`}>
+            <Link className={styles['create-club']} href={`/notice/create`}>
               <Typography.Body bold color={10}>
                 공지 추가
               </Typography.Body>
@@ -97,6 +98,14 @@ export default async function Page() {
                     <Typography.Body color={80}>
                       {notice.createdAt}
                     </Typography.Body>
+                  </td>
+                  <td className={styles['icons']}>
+                    <Link href={`/notice/edit/${notice.uuid}`}>
+                      <EditIcon />
+                    </Link>
+                    <Link href={`/notice/delete/${notice.uuid}`}>
+                      <RemoveIcon />
+                    </Link>
                   </td>
                 </tr>
               ))}
