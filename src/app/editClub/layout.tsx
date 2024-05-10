@@ -21,10 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={suit.className}>
-        {children}
-        <div id="modal-root" />
-      </body>
+      <body className={suit.className}>{children}</body>
     </html>
   );
 }

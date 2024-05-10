@@ -30,9 +30,9 @@ export default async function Page() {
   return (
     <div className={styles.section}>
       <div className={styles.sectionTop}>
-        <Typography.TitleLarge color={90}>유저 관리 관리</Typography.TitleLarge>
+        <Typography.TitleLarge color={90}>유저 관리</Typography.TitleLarge>
         <Typography.Label color={60}>
-          공지를 작성하거나 관리할 수 있습니다
+          서비스에 가입된 사용자들의 목록을 보고 관리할 수 있습니다.
         </Typography.Label>
       </div>
       <form>
