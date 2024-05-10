@@ -8,7 +8,7 @@ export async function postNotice(formData: FormData) {
     const response = await fetch('http://localhost:3000/notice', {
       method: 'POST',
       body: JSON.stringify({
-        title: 'test',
+        title: formData.get('title'),
         content: formData.get('content'),
       }),
       headers: {
@@ -22,5 +22,5 @@ export async function postNotice(formData: FormData) {
   } catch (error) {
     console.error(error);
   }
-  await redirect('/notice?create=false');
+  await redirect('/notice');
 }
