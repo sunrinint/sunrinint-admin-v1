@@ -1,0 +1,147 @@
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: visible 0.5s ease;
+}
+
+.modal {
+  display: flex;
+  width: 560px;
+  border-radius: 12px;
+  background: var(--grayscale-10, #fff);
+  animation: slideIn 0.5s ease;
+  position: absolute;
+  margin: auto;
+  border: none;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes visible {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.input-textarea {
+  display: flex;
+  height: 224px;
+  padding: 16px 20px;
+  box-shadow: inset 0 0 0 1px var(--grayscale-30);
+  background: var(--grayscale-10, #fff);
+  @media (prefers-color-scheme: dark) {
+    background: var(--grayscale-30, #1a1f36);
+    box-shadow: none;
+  }
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  align-items: flex-start;
+  gap: 20px;
+  font-family: inherit;
+  align-self: stretch;
+  resize: none;
+  font-size: 17px;
+
+  font-weight: 400;
+  line-height: 24px;
+  &::placeholder {
+    font-weight: 400;
+    color: var(--grayscale-40);
+  }
+  color: var(--grayscale-90);
+}
+
+.close {
+  display: flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 4px;
+  border: none;
+  background: var(--grayscale-20, #f0f2f4);
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    background: var(--grayscale-30, #e7eaee);
+  }
+}
+
+.apply {
+  display: flex;
+  padding: 12px 24px;
+  border: none;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  background: var(--grayscale-90, #1f242b);
+  &:hover {
+    background: var(--grayscale-80, #e7eaee);
+  }
+}
+
+.red {
+  border: none;
+  display: flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  background: var(--etc-red, #1f242b);
+  &:hover {
+    background: var(--etc-red-hover, #e7eaee);
+  }
+}
+
+.textarea-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-self: stretch;
+  padding: 24px;
+}
