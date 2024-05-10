@@ -20,7 +20,7 @@ const InputBox = forwardRef(function InputBox(
       {props.label && <Label label={props.label} required={props.required} />}
       <input
         onBlur={() => {
-          if (props.required && !props.value) {
+          if (props.required && !props.value && props.onChange) {
             setError(true);
           } else {
             setError(false);

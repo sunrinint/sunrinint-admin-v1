@@ -24,6 +24,8 @@
   border-radius: 12px;
   background: var(--grayscale-10, #fff);
   animation: slideIn 0.5s ease;
+  border: none;
+  outline: none;
 }
 
 @keyframes slideIn {

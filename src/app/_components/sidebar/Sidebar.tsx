@@ -8,7 +8,6 @@ import Alert from '@/app/_assets/icons/alert.svg';
 import Club from '@/app/_assets/icons/club.svg';
 import User from '@/app/_assets/icons/user.svg';
 import { usePathname, useRouter } from 'next/navigation';
-import { cookies } from 'next/headers';
 
 export default function Sidebar() {
   const pathName = usePathname();
@@ -26,7 +25,7 @@ export default function Sidebar() {
             href="/notice"
           >
             <Alert fill={'currentColor'} />
-            <Typography.Label bold color={pathName === '/notice' ? 100 : 50}>
+            <Typography.Label color={pathName === '/notice' ? 100 : 50}>
               공지 관리
             </Typography.Label>
           </Link>
