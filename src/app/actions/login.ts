@@ -54,5 +54,5 @@ export async function login(formData: FormData) {
     console.error(error);
     alert('로그인에 실패했습니다.');
   }
-  await redirect('/club');
+  await redirect('../notice');
 }
