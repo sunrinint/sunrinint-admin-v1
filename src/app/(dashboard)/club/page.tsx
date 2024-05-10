@@ -1,33 +1,10 @@
-import { cookies } from 'next/headers';
 import React from 'react';
 import styles from './page.module.scss';
 import { Typography } from '@/app/_components/typography';
-import Checkbox from '@/app/_components/checkbox/Checkbox';
 import Link from 'next/link';
-import Image from 'next/image';
-import { departmentToKorean } from '@/app/constants/department';
 import PlusIcon from '@/app/_assets/icons/plus.svg';
-
-async function getClub() {
-  'use server';
-  try {
-    const response = await fetch('http://localhost:3000/club', {
-      credentials: 'include',
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + cookies().get('Access')?.value,
-      },
-      next: {
-        tags: ['club'],
-      },
-    });
-    const notices = await response.json();
-    return notices;
-  } catch (error) {
-    console.error(error);
-  }
-}
+import ClubCloumn from '@/app/_components/column/ClubCloumn';
+import { getClub } from '@/app/actions/getClub';
 
 export default async function page() {
   const clubs = await getClub();
@@ -81,33 +58,7 @@ export default async function page() {
           <tbody>
             {clubs.length > 0 &&
               clubs.map((club: any) => (
-                <tr key={club.id}>
-                  <td
-                    style={{
-                      width: '100px',
-                    }}
-                  >
-                    <Image
-                      src={club.logo}
-                      alt="club"
-                      width={50}
-                      height={50}
-                      className={styles['club-image']}
-                    />
-                  </td>
-                  <td className={styles['club-info']}>
-                    <Typography.Label color={80}>
-                      {club.displayName}
-                    </Typography.Label>
-                    <Typography.Body color={70}>{club.name}</Typography.Body>
-                  </td>
-                  <td className={styles['table-row']}>
-                    <Typography.Body color={80}>
-                      {departmentToKorean[club.department]}
-                    </Typography.Body>
-                  </td>
-                  <td className={styles['table-row']}></td>
-                </tr>
+                <ClubCloumn key={club.uuid} club={club} />
               ))}
           </tbody>
         </table>
