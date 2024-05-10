@@ -17,17 +17,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="ko">
       <body className={[SUITVariable.className, styles.container].join(' ')}>
         <Sidebar />
+        {modal}
         {children}
-        <div id="modal-root">
-          <CreateModal />
-        </div>
+        <div id="modal-root" />
       </body>
     </html>
   );

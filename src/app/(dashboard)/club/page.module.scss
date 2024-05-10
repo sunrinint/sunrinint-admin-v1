@@ -49,24 +49,8 @@
   overflow: hidden;
 }
 
-.table-row {
-  padding: 16px 24px 16px 0px;
-}
-
 .table-head {
   border-bottom: 1px solid var(--grayscale-30, #e7eaee);
-}
-
-.club-image {
-  width: 52px;
-  height: 52px;
-  border-radius: 4px;
-}
-
-.club-info {
-  display: flex;
-  flex-direction: column;
-  padding: 16px 24px 16px 0px;
 }
 
 .create-club {
