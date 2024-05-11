@@ -62,5 +62,5 @@ export async function editClub(formData: FormData) {
   } catch (error) {
     console.error(error);
   }
-  await redirect('/club');
+  await redirect('../club');
 }
