@@ -12,7 +12,7 @@ import EditIcon from '@/app/_assets/icons/edit.svg';
 async function getNotices() {
   'use server';
   try {
-    const response = await fetch('http://localhost:3000/notice', {
+    const response = await fetch(`http://localhost:3000/notice`, {
       credentials: 'include',
       method: 'GET',
       headers: {
@@ -46,7 +46,7 @@ export default async function Page() {
       <div className={styles.content}>
         <div className={styles.tableTop}>
           <Typography.Label bold color={80}>
-            전체 공지 {notices!!.length}개
+            전체 공지 {notices?.length ?? 0}개
           </Typography.Label>
           <div className={styles['button-group']}>
             <Link className={styles['create-club']} href={`/notice/create`}>
@@ -82,7 +82,7 @@ export default async function Page() {
             </tr>
           </thead>
           <tbody>
-            {notices.length > 0 &&
+            {notices?.length > 0 &&
               notices.map((notice: Notice) => (
                 <tr key={notice.uuid}>
                   <td className={styles['table-checkbox']}>

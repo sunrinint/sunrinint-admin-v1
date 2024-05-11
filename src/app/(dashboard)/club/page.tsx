@@ -19,7 +19,7 @@ export default async function page() {
       <div className={styles.content}>
         <div className={styles.tableTop}>
           <Typography.Label bold color={80}>
-            전체 동아리 {clubs!!.length}개
+            전체 동아리 {clubs?.length ?? 0}개
           </Typography.Label>
           <div className={styles['button-group']}>
             <Link className={styles['create-club']} href={`createClub`}>
@@ -56,7 +56,7 @@ export default async function page() {
             </tr>
           </thead>
           <tbody>
-            {clubs.length > 0 &&
+            {clubs?.length > 0 &&
               clubs.map((club: any) => (
                 <ClubCloumn key={club.uuid} club={club} />
               ))}

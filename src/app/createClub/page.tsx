@@ -36,10 +36,10 @@ export default function Page() {
       });
   }, []);
 
-  const handleLightLogo = (e) => {
+  const handleLightLogo = (e: React.ChangeEvent<HTMLInputElement>) => {
     let reader = new FileReader();
 
-    if (e.target.files[0]) {
+    if (e?.target?.files?.[0]) {
       reader.readAsDataURL(e.target.files[0]);
     }
 
@@ -52,10 +52,10 @@ export default function Page() {
     };
   };
 
-  const handleDarkLogo = (e) => {
+  const handleDarkLogo = (e: React.ChangeEvent<HTMLInputElement>) => {
     let reader = new FileReader();
 
-    if (e.target.files[0]) {
+    if (e?.target?.files?.[0]) {
       reader.readAsDataURL(e.target.files[0]);
     }
 

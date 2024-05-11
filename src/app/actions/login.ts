@@ -52,7 +52,6 @@ export async function login(formData: FormData) {
     }
   } catch (error) {
     console.error(error);
-    alert('로그인에 실패했습니다.');
   }
   await redirect('../notice');
 }

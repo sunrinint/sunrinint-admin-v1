@@ -74,7 +74,7 @@ export default async function Page() {
           </tr>
         </thead>
         <tbody>
-          {users.map((user: User) => (
+          {users?.map((user: User) => (
             <tr key={user.id}>
               <td className={styles['table-checkbox']}>
                 <Checkbox checked={true} />
