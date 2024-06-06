@@ -2,13 +2,13 @@
 import { revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { department } from '../constants/department';
+import { department } from '../../constants/department';
 
 export async function createClub(formData: FormData) {
   try {
     const logoFormData = new FormData();
     logoFormData.append('image', formData.get('logo') as Blob);
-    const logo = await fetch('http://localhost:3000/upload/image', {
+    const logo = await fetch(`${process.env.API_URL}/upload/image`, {
       method: 'POST',
       body: logoFormData,
       headers: {
@@ -18,7 +18,7 @@ export async function createClub(formData: FormData) {
     const logoUrl = await logo.json();
     const darkLogoFormData = new FormData();
     darkLogoFormData.append('image', formData.get('logo_dark') as Blob);
-    const logoDark = await fetch('http://localhost:3000/upload/image', {
+    const logoDark = await fetch(`${process.env.API_URL}/upload/image`, {
       method: 'POST',
       body: darkLogoFormData,
       headers: {
@@ -26,7 +26,7 @@ export async function createClub(formData: FormData) {
       },
     });
     const darkLogoUrl = await logoDark.json();
-    const response = await fetch('http://localhost:3000/club', {
+    const response = await fetch(`${process.env.API_URL}/club`, {
       method: 'POST',
       body: JSON.stringify({
         name: formData.get('name'),

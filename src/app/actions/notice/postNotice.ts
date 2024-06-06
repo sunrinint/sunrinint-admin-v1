@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 
 export async function postNotice(formData: FormData) {
   try {
-    const response = await fetch('http://localhost:3000/notice', {
+    const response = await fetch(`${process.env.API_URL}/notice`, {
       method: 'POST',
       body: JSON.stringify({
         title: formData.get('title'),

@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 
 export async function login(formData: FormData) {
   try {
-    const response = await fetch('http://localhost:3000/admin/login', {
+    const response = await fetch(`${process.env.API_URL}/admin/login`, {
       method: 'POST',
       body: JSON.stringify({
         id: formData.get('id'),
@@ -31,7 +31,7 @@ export async function login(formData: FormData) {
         maxAge: 60 * 60 * 24 * 7,
       });
     }
-    const access = await fetch('http://localhost:3000/admin/refresh', {
+    const access = await fetch(`${process.env.API_URL}/admin/refresh`, {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',

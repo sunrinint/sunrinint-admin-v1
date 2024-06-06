@@ -7,9 +7,9 @@ import styles from '@/app/styles/modal.module.scss';
 import { Typography } from '@/app/_components/typography';
 import InputBox from '@/app/_components/input/InputBox';
 import Label from '@/app/_components/label/Label';
-import { postNotice } from '@/app/actions/postNotice';
-import { deleteNotice } from '@/app/actions/deleteNotice';
-import { deleteClub } from '@/app/actions/deleteClub';
+import { postNotice } from '@/app/actions/notice/postNotice';
+import { deleteNotice } from '@/app/actions/notice/deleteNotice';
+import { deleteClub } from '@/app/actions/club/deleteClub';
 
 export function Modal({ id }: { id: string }) {
   const router = useRouter();

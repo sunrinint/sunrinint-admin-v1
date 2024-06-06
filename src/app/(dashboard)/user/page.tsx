@@ -10,7 +10,7 @@ async function getUsers() {
   'use server';
   try {
     console.log(cookies().get('Access')?.value);
-    const response = await fetch('http://localhost:3000/user', {
+    const response = await fetch(`${process.env.API_URL}/user`, {
       credentials: 'include',
       method: 'GET',
       headers: {

@@ -1,9 +1,9 @@
 import { cookies } from 'next/headers';
 
-export async function getClubById(id: string) {
+export async function getClub() {
   'use server';
   try {
-    const response = await fetch('http://localhost:3000/club/' + id, {
+    const response = await fetch(`${process.env.API_URL}/club`, {
       credentials: 'include',
       method: 'GET',
       headers: {
@@ -11,11 +11,12 @@ export async function getClubById(id: string) {
         Authorization: 'Bearer ' + cookies().get('Access')?.value,
       },
       next: {
-        tags: ['clubitem'],
+        tags: ['club'],
       },
     });
-    const club = await response.json();
-    return club;
+    const notices = await response.json();
+    console.log(notices);
+    return notices;
   } catch (error) {
     console.error(error);
   }

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Typography } from '../typography';
 import InputBox from '../input/InputBox';
 import Label from '../label/Label';
-import { postNotice } from '@/app/actions/postNotice';
+import { postNotice } from '@/app/actions/notice/postNotice';
 
 function CreateModal() {
   const searchParams = useSearchParams();

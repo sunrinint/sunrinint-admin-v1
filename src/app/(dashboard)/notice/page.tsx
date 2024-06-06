@@ -12,7 +12,7 @@ import EditIcon from '@/app/_assets/icons/edit.svg';
 async function getNotices() {
   'use server';
   try {
-    const response = await fetch(`http://localhost:3000/notice`, {
+    const response = await fetch(`${process.env.API_URL}/notice`, {
       credentials: 'include',
       method: 'GET',
       headers: {

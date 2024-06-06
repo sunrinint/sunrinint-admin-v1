@@ -10,7 +10,7 @@ import PlusIcon from '@/app/_assets/icons/plus.svg';
 import Label from '../label/Label';
 import Dropdown from '../dropdown/Dropdown';
 import { departmentToKorean } from '@/app/constants/department';
-import { editClub } from '@/app/actions/editClub';
+import { editClub } from '@/app/actions/club/editClub';
 import { useRouter } from 'next/navigation';
 
 export default function EditClubForm({ clubData }: { clubData: any }) {

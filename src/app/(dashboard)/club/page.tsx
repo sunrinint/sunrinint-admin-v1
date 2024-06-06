@@ -4,7 +4,7 @@ import { Typography } from '@/app/_components/typography';
 import Link from 'next/link';
 import PlusIcon from '@/app/_assets/icons/plus.svg';
 import ClubCloumn from '@/app/_components/column/ClubCloumn';
-import { getClub } from '@/app/actions/getClub';
+import { getClub } from '@/app/actions/club/getClub';
 
 export default async function page() {
   const clubs = await getClub();
@@ -55,8 +55,13 @@ export default async function page() {
               <th className={styles['table-row']}></th>
             </tr>
           </thead>
-          <tbody>
-            {clubs?.length > 0 &&
+          <tbody
+            style={{
+              overflow: 'scroll',
+              height: 'calc(100vh - 300px)',
+            }}
+          >
+            {clubs.length > 0 &&
               clubs.map((club: any) => (
                 <ClubCloumn key={club.uuid} club={club} />
               ))}

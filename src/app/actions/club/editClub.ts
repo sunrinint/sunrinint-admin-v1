@@ -2,15 +2,14 @@
 import { revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { department } from '../constants/department';
-import { NextResponse } from 'next/server';
+import { department } from '../../constants/department';
 
 export async function editClub(formData: FormData) {
   try {
     if ((formData.get('logo_new') as File).size > 0) {
       const logoFormData = new FormData();
       logoFormData.append('image', formData.get('logo_new') as Blob);
-      const logo = await fetch('http://localhost:3000/upload/image', {
+      const logo = await fetch(`${process.env.API_URL}/upload/image`, {
         method: 'POST',
         body: logoFormData,
         headers: {
@@ -23,7 +22,7 @@ export async function editClub(formData: FormData) {
     if ((formData.get('logo_dark_new') as File).size > 0) {
       const darkLogoFormData = new FormData();
       darkLogoFormData.append('image', formData.get('logo_dark_new') as Blob);
-      const logoDark = await fetch('http://localhost:3000/upload/image', {
+      const logoDark = await fetch(`${process.env.API_URL}/upload/image`, {
         method: 'POST',
         body: darkLogoFormData,
         headers: {
@@ -46,7 +45,7 @@ export async function editClub(formData: FormData) {
       facebook: formData.get('facebook'),
     };
     const response = await fetch(
-      'http://localhost:3000/club/' + formData.get('id'),
+      `${process.env.API_URL}/club/${formData.get('id')}`,
       {
         method: 'PATCH',
         body: JSON.stringify(requestBody),

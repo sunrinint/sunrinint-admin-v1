@@ -9,7 +9,7 @@ import Dropdown from '../_components/dropdown/Dropdown';
 import LogoSmall from '../_assets/LogoSmall';
 import Image from 'next/image';
 import ClubCardSkeleton from '../_components/skeleton/ClubCardSkeleton';
-import { createClub } from '../actions/createClub';
+import { createClub } from '../actions/club/createClub';
 
 export default function Page() {
   const [department, setDepartment] = useState('소프트웨어과');

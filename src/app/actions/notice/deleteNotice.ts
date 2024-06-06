@@ -3,10 +3,10 @@ import { revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
-export async function deleteClub(formData: FormData) {
+export async function deleteNotice(formData: FormData) {
   try {
     const response = await fetch(
-      `http://localhost:3000/club/${formData.get('id')}`,
+      `${process.env.API_URL}/notice/${formData.get('id')}`,
       {
         method: 'delete',
         headers: {
@@ -17,10 +17,10 @@ export async function deleteClub(formData: FormData) {
     );
     console.log(await response.json());
     if (response.status === 201) {
-      revalidateTag('club');
+      revalidateTag('notice');
     }
   } catch (error) {
     console.error(error);
   }
-  await redirect('/club');
+  await redirect('/notice');
 }
