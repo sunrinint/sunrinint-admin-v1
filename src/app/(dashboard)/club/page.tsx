@@ -61,7 +61,7 @@ export default async function page() {
               height: 'calc(100vh - 300px)',
             }}
           >
-            {clubs.length > 0 &&
+            {clubs?.length > 0 &&
               clubs.map((club: any) => (
                 <ClubCloumn key={club.uuid} club={club} />
               ))}
