@@ -212,7 +212,6 @@ export default function Page() {
                           height="32"
                           src={darkMode && darkLogo ? darkLogo : lightLogo}
                           alt="light-logo"
-                          className={styles['image-preview']}
                         />
                       )}
                       <div
