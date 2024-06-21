@@ -5,25 +5,7 @@ import InputBox from '../../_components/input/InputBox';
 import Checkbox from '../../_components/checkbox/Checkbox';
 import { cookies } from 'next/headers';
 import { User } from '@/app/types/user';
-
-async function getUsers() {
-  'use server';
-  try {
-    console.log(cookies().get('Access')?.value);
-    const response = await fetch(`${process.env.API_URL}/user`, {
-      credentials: 'include',
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + cookies().get('Access')?.value,
-      },
-    });
-    const users = await response.json();
-    return users;
-  } catch (error) {
-    console.error(error);
-  }
-}
+import { getUsers } from '@/app/actions/user/getUsers';
 
 export default async function Page() {
   const users = await getUsers();

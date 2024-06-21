@@ -8,27 +8,7 @@ import Link from 'next/link';
 import PlusIcon from '@/app/_assets/icons/plus.svg';
 import RemoveIcon from '@/app/_assets/icons/delete.svg';
 import EditIcon from '@/app/_assets/icons/edit.svg';
-
-async function getNotices() {
-  'use server';
-  try {
-    const response = await fetch(`${process.env.API_URL}/notice`, {
-      credentials: 'include',
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + cookies().get('Access')?.value,
-      },
-      next: {
-        tags: ['notice'],
-      },
-    });
-    const notices = await response.json();
-    return notices;
-  } catch (error) {
-    console.error(error);
-  }
-}
+import { getNotices } from '@/app/actions/notice/getNotices';
 
 export default async function Page() {
   const notices = await getNotices();

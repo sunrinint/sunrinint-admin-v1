@@ -1,10 +1,10 @@
 import { cookies } from 'next/headers';
 
-export async function getClub() {
+export async function getNotices() {
   'use server';
   const accessToken = cookies().get('Access')?.value;
   try {
-    const response = await fetch(`${process.env.API_URL}/club`, {
+    const response = await fetch(`${process.env.API_URL}/notice`, {
       credentials: 'include',
       method: 'GET',
       headers: {
@@ -12,7 +12,7 @@ export async function getClub() {
         Authorization: 'Bearer ' + accessToken,
       },
       next: {
-        tags: ['club'],
+        tags: ['notice'],
       },
     });
     const notices = await response.json();
