@@ -11,6 +11,7 @@ import { usePathname, useRouter } from 'next/navigation';
 
 export default function Sidebar() {
   const pathName = usePathname();
+  const router = useRouter();
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -19,9 +20,12 @@ export default function Sidebar() {
       </div>
       <ul className={styles.navigation}>
         <li>
-          <Link className={pathName === '/' ? styles.active : ''} href="/">
+          <Link
+            className={pathName === '/notice' ? styles.active : ''}
+            href="/notice"
+          >
             <Alert fill={'currentColor'} />
-            <Typography.Label bold color={pathName === '/' ? 100 : 50}>
+            <Typography.Label color={pathName === '/notice' ? 100 : 50}>
               공지 관리
             </Typography.Label>
           </Link>
@@ -64,7 +68,13 @@ export default function Sidebar() {
         <div className={styles.profile} />
         <div className={styles.info}>
           <Typography.Title color={90}>주현명</Typography.Title>
-          <Typography.Body color={50}>로그아웃</Typography.Body>
+          <div
+            onClick={() => {
+              router.push('/login');
+            }}
+          >
+            <Typography.Body color={50}>로그아웃</Typography.Body>
+          </div>
         </div>
       </div>
     </div>

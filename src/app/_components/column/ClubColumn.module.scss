@@ -1,0 +1,30 @@
+.icons {
+  padding: 16px 0 16px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  height: 100%;
+  & > a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--grayscale-60);
+  }
+}
+
+.table-row {
+  padding: 16px 24px 16px 0px;
+}
+
+.club-image {
+  width: 52px;
+  height: 52px;
+  border-radius: 4px;
+}
+
+.club-info {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 24px 16px 0px;
+}

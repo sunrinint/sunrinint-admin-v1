@@ -4,6 +4,10 @@
   flex-direction: column;
   align-items: flex-start;
   flex: 1 0 0;
+  animation: slideIn 0.5s ease;
+  gap: 16px;
+  height: 100vh;
+  overflow: auto;
 }
 
 .sectionTop {
@@ -18,7 +22,11 @@
   width: 100%;
   text-align: left;
   border-collapse: collapse;
-  overflow: hidden;
+  overflow: auto;
+  height: 100%;
+  tbody {
+    overflow: scroll;
+  }
 }
 
 .table-row {
@@ -35,4 +43,15 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
